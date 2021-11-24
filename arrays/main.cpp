@@ -1,31 +1,48 @@
-#include <cmath>
 #include <iostream>
+#include<set>
+#include<string.h>
+#include <algorithm>
 
 using namespace std;
 
+int dp[4000+13];
+
+int cortes(int n, set<int> abc){
+    if(dp[n] != -1) return dp[n];
+    if(n < 0){
+        return 0;
+    } else if (n==0){
+        return 1;
+    }
+    int sum = 0;
+    for (const int number : abc) {
+        sum += cortes(n-number, abc);
+        dp[n] = sum;
+    }
+    return sum;
+}
+
 int main()
 {
-    int n, t;
-    cin>> n >> t;
-    char chil[n];
-    for(int i=0; i<n; i++) {
-        cin>>chil[i];
+    set<int> abc;
+    int n,a,b,c;
+    cin>> n;
+    int i=0, cort=0;
+    while(i<3){
+        int a;
+        cin >> a;
+        abc.insert(a);
+        if(a==n) cort--;
+        i++;
     }
+    memset (dp, -1 ,sizeof(dp));
 
-    for(int j=0; j<t; j++) {
-        for(int i=n-1; i>=0; i--) {
-            if(chil[i]=='G' && chil[i-1]=='B'){
-                chil[i] = 'B';
-                chil[i-1] = 'G';
-                i--;
-            }
-        }
+    if(abc.size() == 1){
+        cout<<1;
+    } else {
+        cort += cortes(n, abc);
+        cout<< cort;
     }
-
-    for(int i=0; i<n; i++) {
-        cout<<chil[i];
-    }
-
     return 0;
 }
 /*
@@ -130,3 +147,85 @@ void arrayManupulation(){
     }
     cout<<max;
 }*/
+
+/*
+void arraysDS(){
+    int len;
+    cin>>len;
+    int arr[len];
+    for(int i=0; i< len; i++){
+        cin>>arr[i];
+    }
+
+    for(int i=len-1; i>=0; i--){
+        cout<<arr[i];
+    }
+}
+*/
+/*
+void 2DArrayDS(){
+    int arr[6][6];
+    for(int i=0; i<6; i++){
+        for(int j=0; j<6; j++) {
+            cin>>arr[i][j];
+        }
+    }
+
+    int reloj[3][3] = {0,0,0,0,0,0,0,0,0};
+    int relojes[4][4];
+    cout<<"buenas";
+    for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            reloj[i][j] = arr[i][j];
+            cout<<arr[i][j]<<endl;
+        }
+    }
+}*/
+
+/*
+void leftRotation(){
+  int tam, cambios;
+    cin>> tam >> cambios;
+    int arr[tam], arre[tam];
+    for(int i=0; i<tam; i++){
+        cin >> arr[i];
+    }
+
+    for (int j=0; j<tam; j++){
+        int pos = j - cambios;
+        if( pos < 0) pos += tam;
+        arre[pos] = arr[j];
+    }
+
+    for(int k=0; k<tam; k++){
+        cout<< arre[k] << " ";
+    }
+
+}
+*/
+
+/*
+void queueSchool(){
+    int n, t;
+    cin>> n >> t;
+    char chil[n];
+    for(int i=0; i<n; i++) {
+        cin>>chil[i];
+    }
+
+    for(int j=0; j<t; j++) {
+        for(int i=n-1; i>=0; i--) {
+            if(chil[i]=='G' && chil[i-1]=='B'){
+                chil[i] = 'B';
+                chil[i-1] = 'G';
+                i--;
+            }
+        }
+    }
+
+    for(int i=0; i<n; i++) {
+        cout<<chil[i];
+    }
+
+}
+*/
