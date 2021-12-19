@@ -31,7 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="bsTypes.cpp" />
+		<Unit filename="fixedPoint.cpp" />
+		<Unit filename="guesstheRoot.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="printLinkedList.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
