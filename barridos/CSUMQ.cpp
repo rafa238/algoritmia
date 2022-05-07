@@ -1,7 +1,7 @@
 //Cumulative sum query
 //https://www.spoj.com/problems/CSUMQ/
 
-include <iostream>
+#include <iostream>
 #include <vector>
 
 using namespace std;
