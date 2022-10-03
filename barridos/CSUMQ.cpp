@@ -6,18 +6,13 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
     int n,q,a;
     cin>>n;
-    vector<int> arr;
-    vector<int> prefixSum;
-
-    cin>>a;
-    prefixSum.push_back(a);
-    for(int i=1; i<n; i++){
+    vector<int> prefixSum(n+1);
+    prefixSum[0] = 0;
+    for(int i=1; i<=n; i++){
         cin>>a;
-        arr.push_back(a);
         prefixSum[i] = a + prefixSum[i-1];
     }
     cin>>q;
@@ -25,7 +20,7 @@ int main()
 
     while(q--){
         cin>>i>>j;
-        cout<<prefixSum[j] - prefixSum[i-1]<<endl;
+        cout<<prefixSum[j+1] - prefixSum[i]<<endl;
     }
 
     return 0;

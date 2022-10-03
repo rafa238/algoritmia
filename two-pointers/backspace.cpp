@@ -1,35 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string quitar(string cadena){
-    char buffer[100];
-    strcpy(buffer, cadena.c_str());
-    
-}
-
-bool stringdp(map<string, bool> &dp, string cadena, string target){
-    if(target == cadena) return true;
-    if(dp.count(cadena)) return dp[cadena];
-    
-    for(int i=0; i<cadena.size(); i++) {
-        
-        return stringdp(dp, cadena, target);
-    }
-    //return stringdp(dp, cadena, target) ||  stringdp(dp, cadena, target) || stringdp(dp, cadena, target) || stringdp(dp, cadena, target);
-}
-
 int main(){
-    int n;
-    vector<string> dp;
-    map<string, string> pares;
-
-    cin>>n;
-        for(int i=0;i<n;i++){
-        string cadena, buscado;
-        cin>>cadena>>buscado;
-        //cout<<"insertado: "<<cadena<<endl;
-        pares.insert({cadena, buscado});
+    int Q;cin >> Q;
+    while(Q--){
+        string s, t;
+        cin >> s;
+        cin >> t;
+        int p1 = s.size() - 1;
+        bool ans = 1;
+        for (int p2 = t.size() - 1; p2 >= 0; p2--){
+            while (p1 >= 0 && s[p1] != t[p2]){
+                p1 -= 2;
+            }
+            if (p1 < 0){
+                ans = false;
+                break;
+            }
+            p1 --;
+        }
+        string res = (ans)?"YES":"NO";
+        cout<<res<<endl;
     }
-
     return 0;
 }

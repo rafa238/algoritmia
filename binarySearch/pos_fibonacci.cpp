@@ -15,29 +15,12 @@ int bs(int fibo[], int n){
     return 0;
 }
 
-void generateFibonacci(int n, int* arr){
-    n+=5;
-    int a = 0;
-    int b = 1;
-    int c;
-    arr[0] = a;
-    arr[1] = b;
-
-    for (int i = 2; i < n; i++){
-        c = a + b;
-        arr[i] = c;
-        a = b;
-        b = c;
-    }
-}
-
 int main()
 {
     std::cin.tie(nullptr);
     std::ios_base::sync_with_stdio(false);
     int n; std::cin>>n;
     int arr[n+5];
-    generateFibonacci(n, arr);
     std::cout<<bs(arr, n)-1;
 
     return 0;
