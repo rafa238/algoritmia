@@ -35,35 +35,36 @@ class UnionFind {
 int main(){
     int N;
     scanf("%d", &N);
-    UnionFind estruc(N);
-    vector<int> enemies(N+1, -1);
+    UnionFind aliades(2*N);
     while(true){
         int op, c1, c2;
         scanf("%d %d %d", &op, &c1, &c2);
         if(op==0 && c1==0 && c2==0) break;
+        int a1 = aliades.findSet(c1), a2 = aliades.findSet(c1 + N);
+        int b1 = aliades.findSet(c2), b2 = aliades.findSet(c2 + N);
         switch(op){
             case 1:
-                if(enemies[estruc.findSet(c1)] == estruc.findSet(c2)) cout<<"-1 "<<endl;
-                else estruc.unionSet(c1, c2);
+                if(a1 == b2) puts("-1");
+                else {
+                    aliades.unionSet(c1, c2);
+                    aliades.unionSet(c1+N, c2+N);
+                }
                 break;
             case 2:
-                if(estruc.isSameSet(c1, c2)) cout<<"-1"<<endl;
+                if(a1 == b1) puts("-1");
                 else {
-                    int p1 = estruc.findSet(c1), p2 = estruc.findSet(c2);
-                    enemies[p1] = p2;
-                    enemies[p2] = p1;
+                    aliades.unionSet(c1, c2+N);
+                    aliades.unionSet(c2, c1+N);
                 }
                 break;
             case 3:
                 {
-                    bool ans = estruc.isSameSet(c1, c2);
-                    if(ans) cout<<"1"<<endl;
+                    if(a1 == b1) cout<<"1"<<endl;
                     else cout<<"0"<<endl;
                     break;
                 }
-                
             case 4:
-                if(enemies[estruc.findSet(c1)] == estruc.findSet(c2)) cout<<"1"<<endl;
+                if(a1 == b2) cout<<"1"<<endl;
                 else cout<<"0"<<endl;
                 break;
             default: break;
