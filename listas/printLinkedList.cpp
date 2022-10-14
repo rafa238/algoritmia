@@ -1,4 +1,4 @@
-/*void printLinkedList(SinglyLinkedListNode* head) {
+void printLinkedList(SinglyLinkedListNode* head) {
      while(head!=nullptr){
          cout <<head->data<<endl;
          head=head->next;
@@ -47,5 +47,5 @@ SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNo
     }
     return nuevaLista->head;
 }
-*/
+
 //void reverseLinkedList(){}
