@@ -2,38 +2,38 @@
 using namespace std;
 
 int main(){
-    int tc, p; scanf("%d", &tc);
+    int tc; scanf("%d", &tc);
     
     while(tc--){
-        string s;
+        int p;
         scanf("%d", &p);
         getchar();
-        //vector<vector<int>> graph(p);
         int minimo=INT_MAX;
-        vector<int> nums;
-        for (int i=0; i<p; i++){
+        p++;
+        vector<int> nums(p, 0);
+        for (int i=1; i<p; i++){
+            string s;
             getline(cin, s);
-            int cont=0;
-            for(int j=0; j<s.size(); j++){
-                if(s[j] != ' '){
-                    //cout<<s[j];
+            int cont=1;
+            for(int j=0; j<s.length(); j++){
+                if(s[j] == ' '){
                     cont++;
                 }
-                //cout<<"elem : "<<s[j];
             }
+            nums[i] = cont;
             minimo = min(cont, minimo);
-            nums.push_back(cont);
-            //cout<<"endl";
+            
         }
-        //cout<<minimo<<" ";
-        for (int i=0; i<nums.size(); i++){
-            //cout<<nums[i];
+        vector<int> ans;
+        for (int i=1; i<p; i++){
             if(nums[i] == minimo){
-                cout<<i+1;
-                if(i!=nums.size()-1) cout<<" ";
-                else cout<<"\n";
+                ans.push_back(i);
+                //cout<<i+1<<(i!=nums.size()-1 ? " ":"\n");
                 
             }
+        }
+        for (int i=0; i<ans.size(); i++){
+            cout<<ans[i]<<(i!=ans.size()-1 ? " ":"\n");
         }
 
     }
