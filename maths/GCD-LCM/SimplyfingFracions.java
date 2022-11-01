@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.math.BigInteger;
+
 class SimplyfingFracions{
     static BigInteger gcd(BigInteger a, BigInteger b){
         return b.equals(new BigInteger("0")) ? a : gcd(b, a.mod(b));
