@@ -1,3 +1,4 @@
+//https://www.spoj.com/problems/TDPRIMES/
 #include <bits/stdc++.h>
 
 using namespace std;
