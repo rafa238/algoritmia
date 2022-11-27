@@ -1,4 +1,4 @@
-//https://www.spoj.com/problems/ETF/
+//https://www.spoj.com/problems/DIVSUM/
 #include<bits/stdc++.h>
 using namespace std;
 
