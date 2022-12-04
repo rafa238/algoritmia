@@ -68,9 +68,9 @@ struct SegmentTree{
     }
 };
 
-struct fight{
+struct chnage{
     int l , r , x  ; 
-    fight(int _l,int _r,int _x){
+    chnage(int _l,int _r,int _x){
         l = _l ; 
         r = _r ;
         x = _x ; 
@@ -81,11 +81,11 @@ int main(){
     int n, m; cin>>n>>m;
     vector<int> vals(n+1, 0);
     SegmentTree T(vals);
-    vector<struct fight> queries;
+    vector<struct chnage> queries;
     for(int i=0; i<m; i++){
         int li, ri, xi;
         cin>>li>>ri>>xi;
-        struct fight f(li, ri, xi);
+        struct chnage f(li, ri, xi);
         queries.push_back(f);
     }
     reverse(queries.begin(), queries.end());
