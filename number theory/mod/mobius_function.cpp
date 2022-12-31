@@ -1,4 +1,4 @@
-
+//https://www.spoj.com/submit/MMFMOB/
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
