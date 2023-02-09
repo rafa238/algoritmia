@@ -1,5 +1,7 @@
-// binaria clasica -> boolean
+#include <bits/stdc++.h>
+using namespace std;
 
+// binaria clasica -> boolean
 bool bs(vector<int>& a, int t, int l, int r) {
   if(l > r) return false;
 
@@ -19,39 +21,31 @@ bool bs(vector<int>& a, int t, int l, int r) {
 }
 
 // lower bound -> posicion
-int bs(vector<int>& a, int t, int l, int r) {
+int bsLower(vector<int>& a, int t, int l, int r) {
   if(l > r) return l;
 
   int m = (r - l) / 2 + l;
 
   if(a[m] == t) {
     return bs(a, t, l, m - 1);
-  } else
-
-  if(a[m] > t) {
+  } else if(a[m] > t) {
     return bs(a, t, l, m - 1);
-  } else
-
-  if(a[m] < t) {
+  } else if(a[m] < t) {
     return bs(a, t, m + 1, r);
   }
 }
 
 // upper bound -> posicion
-int bs(vector<int>& a, int t, int l, int r) {
+int bsUpper(vector<int>& a, int t, int l, int r) {
   if(l > r) return l;
 
   int m = (r - l) / 2 + l;
 
   if(a[m] == t) {
     return bs(a, t, m + 1, r);
-  } else
-
-  if(a[m] > t) {
+  } else if(a[m] > t) {
     return bs(a, t, l, m - 1);
-  } else
-
-  if(a[m] < t) {
+  } else if(a[m] < t) {
     return bs(a, t, m + 1, r);
   }
-}*/
+}
