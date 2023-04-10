@@ -8,20 +8,11 @@ int main(){
     while(tc--){
         cin>>n>>k;
         
-        ll cas = n % k;
+        ll cas = k % 3;
         if(cas == 0){
-            ll ans = n / k;
-            if(ans % 2 == 0){
-                cout<<"Bob";
-            } else {
-                cout<<"Alice";
-            }
+            
         } else {
-            if((cas+1) % 2 == 0){
-                cout<<"Bob";
-            } else {
-                cout<<"Alice";
-            }
+            
         }
         cout<<endl;
     }
