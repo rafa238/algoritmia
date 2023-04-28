@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+typedef long long ll;
 // binaria clasica -> boolean
 bool bs(vector<int>& a, int t, int l, int r) {
   if(l > r) return false;
@@ -48,4 +48,37 @@ int bsUpper(vector<int>& a, int t, int l, int r) {
   } else if(a[m] < t) {
     return bs(a, t, m + 1, r);
   }
+}
+
+int lowerBound(vector<ll> &v, ll target){
+    ll mid,  l = 0, r = v.size() - 1;
+    while(l < r){
+        mid = (l+r)/2;
+        if(target <= v[mid]){
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+
+int upperBound(vector<int> &v, int target){
+    int mid,  l = 0, r = v.size() - 1;
+    while(l < r){
+        mid = (l+r)/2;
+        if(target < v[mid]){
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+
+int main(){
+  vector<int> v = {1,4,5,6,7};
+  int idx = (v, 2)-1;
+  cout<<idx;
+  return 0;
 }
