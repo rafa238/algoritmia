@@ -15,7 +15,6 @@ public:
                 }
             }
         }
-        cout<<ansSize;
         //even lenght
         for(int i=0; i<n; i++){
             int currSize = 0;
@@ -30,7 +29,6 @@ public:
             }
         }
         if(L == 0 && R == 0){
-            cout<<"entro";
             return s.substr(L, R+1);
         }
         cout<<L<<R;
