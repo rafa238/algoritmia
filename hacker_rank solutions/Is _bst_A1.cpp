@@ -7,7 +7,7 @@
         bool right = checkBST2(root->right, maxP, root->data);
         
         
-        return left && right && root->data <= maxP && root->data >= minP;
+        return left && right && root->data < maxP && root->data > minP;
     }
 
 	bool checkBST(Node* root) {
