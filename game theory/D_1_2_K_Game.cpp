@@ -7,12 +7,19 @@ int main(){
     ll n, k;
     while(tc--){
         cin>>n>>k;
-        
-        ll cas = k % 3;
-        if(cas == 0){
-            
+        if(k%3 == 0){
+            ll aux = n%(k+1);
+            if(aux%3 == 0 && aux != k){
+                cout<<"Bob";
+            } else {
+                cout<<"Alice";
+            }
         } else {
-            
+            if(n%3 == 0){
+                cout<<"Bob";
+            } else {
+                cout<<"Alice";
+            }
         }
         cout<<endl;
     }
