@@ -1,19 +1,19 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int tc;
-    cin>>tc;
+typedef long long ll;
+int main(){
+    int tc; cin >> tc;
     while(tc--){
-        int n, k, x;
-        cin >> n >> k >> x;
-
-        if (x < k || x > k * n || x > n) {
-            cout << "NO" << endl;
+        ll n, k, x;
+        cin>>n>>k>>x;
+        ll min_sum = ((k)*(k+1)) / 2;
+        ll total_sum = ((n)*(n+1)) / 2;
+        ll max_sum = total_sum - ((n-k)*(n-k+1)) / 2;
+        if(min_sum <= x && x <= max_sum){
+            cout << "YES\n";
         } else {
-            cout << "YES" << endl;
+            cout << "NO\n";
         }
     }
-
     return 0;
 }
